@@ -4,7 +4,6 @@ import {
   DotLottiePlayer,
 } from "@dotlottie/react-player";
 import productImage from "@/assets/product-image.png";
-import Image from "next/image";
 import { ComponentPropsWithoutRef, useEffect, useRef, useState } from "react";
 import {
   animate,
@@ -76,7 +75,7 @@ const FeatureTab = (
 
     animate(xPrecentage, [0, 100, 100, 0, 0], options);
     animate(yPercentage, [0, 0, 100, 100, 0], options);
-  }, [props.selected]);
+  }, [props.selected, xPrecentage, yPercentage]);
 
   const handleTabHover = () => {
     if (dotlottieRef.current === null) return;

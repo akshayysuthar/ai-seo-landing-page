@@ -15,14 +15,14 @@ const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const updateMousePositon = (event: MouseEvent) => {
-    if (!to.current) return;
-    const { top, left } = to.current.getBoundingClientRect();
-    mouseX.set(event.clientX - left);
-    mouseY.set(event.clientY - top);
-  };
-
   useEffect(() => {
+    const updateMousePositon = (event: MouseEvent) => {
+      if (!to.current) return;
+      const { top, left } = to.current.getBoundingClientRect();
+      mouseX.set(event.clientX - left);
+      mouseY.set(event.clientY - top);
+    };
+
     const element = to.current;
     if (!element) return;
 
@@ -30,7 +30,7 @@ const useRelativeMousePosition = (to: RefObject<HTMLElement>) => {
     return () => {
       element.removeEventListener("mousemove", updateMousePositon);
     };
-  }, [to]);
+  }, [to, mouseX, mouseY]); // Ensure `mouseX` and `mouseY` are included in dependencies
 
   return [mouseX, mouseY];
 };

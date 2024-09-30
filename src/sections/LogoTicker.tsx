@@ -40,8 +40,8 @@ export const LogoTicker = () => {
                 pulseLogo,
                 quantumLogo,
                 celestialLogo,
-              ].map((logo) => (
-                <img alt={logo.src} src={logo.src} className="h-6 w-auto " />
+              ].map((logo, index) => (
+                <img alt={logo.src} key={index} src={logo.src} className="h-6 w-auto " />
               ))}
             </motion.div>
           </div>
