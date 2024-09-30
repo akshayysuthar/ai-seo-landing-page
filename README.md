@@ -1,6 +1,3 @@
-Here's a simple README.md template you can copy and paste:
-
-````markdown
 # AI SEO Project
 
 ## Overview
